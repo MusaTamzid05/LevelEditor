@@ -19,6 +19,8 @@ SET(SOURCE_FILES
     src/level_editor.cpp
     src/widget_object.cpp
     src/menu_bar.cpp
+    src/camera.cpp
+    src/scene.cpp
     )
 
 
