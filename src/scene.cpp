@@ -19,6 +19,16 @@ namespace Editor {
     }
 
     void Scene::render() {
+        ClearBackground(background_color);
+        BeginMode3D(
+                Game::Camera::get_instance()->get_camera()
+                );
+
+            // render code
+
+        EndMode3D();
+
+
 
     }
     void Scene::update() {

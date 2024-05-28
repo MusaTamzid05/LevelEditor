@@ -14,6 +14,7 @@ namespace Game {
             void update();
 
             static Camera* get_instance();
+            Camera3D get_camera() const;
 
         private:
             Camera();

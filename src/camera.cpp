@@ -39,4 +39,11 @@ namespace Game {
     }
 
 
+    Camera3D Camera::get_camera() const {
+        return main_camera;
+
+    }
+
+
 }
+
