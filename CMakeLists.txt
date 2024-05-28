@@ -15,6 +15,7 @@ SET(SOURCE_FILES
 
     src/main.cpp
     src/level.cpp
+    src/object.cpp
     )
 
 
