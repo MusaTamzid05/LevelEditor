@@ -25,7 +25,7 @@ Level::~Level() {
 void Level::start() {
     std::cout << "level start\n";
 
-    while(!WindowShouldClose()) {
+    while(!WindowShouldClose() && !editor->is_menu_closed()) {
         update();
         render();
 

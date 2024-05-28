@@ -1,6 +1,7 @@
 #include "level_editor.h"
 #include "rlImGui.h"
 #include "widget_object.h"
+#include "menu_bar.h"
 
 
 namespace Editor {
@@ -17,6 +18,10 @@ namespace Editor {
     void LevelEditor::init() {
         rlImGuiSetup(true);
 
+        menu_bar = new MenuBar();;
+        widget_objects.push_back(menu_bar);
+
+
         for(WidgetObject* widget_object : widget_objects)
             widget_object->init();
     }
@@ -30,6 +35,10 @@ namespace Editor {
 
 
     void LevelEditor::update() {
+    }
+
+    bool LevelEditor::is_menu_closed() const {
+        return menu_bar->quit;
     }
 
 }

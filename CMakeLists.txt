@@ -18,6 +18,7 @@ SET(SOURCE_FILES
     src/object.cpp
     src/level_editor.cpp
     src/widget_object.cpp
+    src/menu_bar.cpp
     )
 
 
