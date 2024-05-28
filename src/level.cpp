@@ -35,6 +35,8 @@ void Level::start() {
 
 void Level::render() {
     BeginDrawing();
+        ClearBackground(DARKGRAY);
+
         editor->render();
     EndDrawing();
     
