@@ -1,6 +1,8 @@
 #include <iostream>
+#include "level.h"
 
 int main(int argc, char** argv) {
-    std::cout << "Hey there !!\n";
+    Level level;
+    level.start();
     return 0;
 }
