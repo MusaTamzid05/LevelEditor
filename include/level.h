@@ -3,7 +3,9 @@
 
 namespace Editor {
     struct LevelEditor;
+    struct Scene;
 };
+
 
 
 struct Level {
@@ -15,6 +17,7 @@ struct Level {
     void render();
 
     Editor::LevelEditor* editor;
+    Editor::Scene* scene;
 
 };
 

@@ -21,6 +21,7 @@ SET(SOURCE_FILES
     src/menu_bar.cpp
     src/camera.cpp
     src/scene.cpp
+    src/view_object.cpp
     )
 
 

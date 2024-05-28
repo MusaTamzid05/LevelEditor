@@ -1,5 +1,6 @@
 #include "scene.h"
 #include "camera.h"
+#include <iostream>
 
 namespace Editor {
     Scene::Scene() {

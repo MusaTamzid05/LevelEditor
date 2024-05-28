@@ -2,6 +2,8 @@
 #include "rlImGui.h"
 #include "widget_object.h"
 #include "menu_bar.h"
+#include "scene.h"
+#include "view_object.h"
 
 
 namespace Editor {
@@ -10,6 +12,7 @@ namespace Editor {
     }
 
     LevelEditor::~LevelEditor() {
+
         for(WidgetObject* widget_object : widget_objects)
             delete widget_object;
 
@@ -22,14 +25,26 @@ namespace Editor {
         widget_objects.push_back(menu_bar);
 
 
+
+
         for(WidgetObject* widget_object : widget_objects)
             widget_object->init();
+
+        view = new ViewObject();
+        view->init();
     }
 
-    void LevelEditor::render() {
+    void LevelEditor::render(Scene* scene) {
         rlImGuiBegin();
             for(WidgetObject* widget_object : widget_objects)
                 widget_object->render();
+
+            view->activate();
+                scene->render();
+            view->deactivate();
+
+            view->render();
+
         rlImGuiEnd();
     }
 
