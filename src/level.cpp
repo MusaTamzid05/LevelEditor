@@ -5,6 +5,7 @@
 #include "cube.h"
 #include "property.h"
 #include "camera_property.h"
+#include "cube_property.h"
 #include <iostream>
 #include <raylib.h>
 
@@ -19,13 +20,16 @@ Level::Level() {
     editor = new Editor::LevelEditor();
     editor->property = new Editor::Property();
     editor->property->widget_objects.push_back(new Editor::CameraProperty());
-    editor->init();
 
     scene = new Editor::Scene();
 
     Game::Cube* cube = new Game::Cube();
+    editor->property->widget_objects.push_back(new Editor::CubeProperty(cube));
+
+
     scene->game_objects.push_back(cube);
 
+    editor->init();
     scene->init();
 
 
