@@ -1,5 +1,6 @@
 #include "menu_bar.h"
 #include "imgui.h"
+#include "message.h"
 
 namespace Editor {
     MenuBar::MenuBar() {
@@ -29,6 +30,7 @@ namespace Editor {
 
             if(ImGui::BeginMenu("Create")) {
                 if(ImGui::MenuItem("Cube"))  {
+                    Game::Message::get_instance()->push(Game::Message::Type::CREATE_CUBE);
 
                 }
 

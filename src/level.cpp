@@ -6,6 +6,7 @@
 #include "property.h"
 #include "camera_property.h"
 #include "cube_property.h"
+#include "message.h"
 #include <iostream>
 #include <raylib.h>
 
@@ -71,4 +72,29 @@ void Level::render() {
 void Level::update() {
     scene->update();
 
+    while(!Game::Message::get_instance()->is_empty()) {
+        Game::Message::Type message_type = Game::Message::get_instance()->pop();
+
+        switch(message_type) {
+            case Game::Message::Type::CREATE_CUBE:
+                Game::Cube* cube = new Game::Cube();
+                Editor::CubeProperty* property = new Editor::CubeProperty(cube);
+
+                cube->init();
+                property->init();
+
+                scene->game_objects.push_back(cube);
+                editor->property->widget_objects.push_back(property);
+
+
+                break;
+        }
+
+    }
 }
+
+
+
+
+
+

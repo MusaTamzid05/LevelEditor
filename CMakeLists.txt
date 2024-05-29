@@ -27,6 +27,7 @@ SET(SOURCE_FILES
     src/property.cpp
     src/camera_property.cpp
     src/cube_property.cpp
+    src/message.cpp
     )
 
 
