@@ -27,6 +27,14 @@ namespace Editor {
                 ImGui::EndMenu();
             }
 
+            if(ImGui::BeginMenu("Create")) {
+                if(ImGui::MenuItem("Cube"))  {
+
+                }
+
+                ImGui::EndMenu();
+            }
+
             ImGui::EndMainMenuBar();
 
         }
