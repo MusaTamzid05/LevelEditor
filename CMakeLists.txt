@@ -23,6 +23,7 @@ SET(SOURCE_FILES
     src/scene.cpp
     src/view_object.cpp
     src/game_object.cpp
+    src/cube.cpp
     )
 
 

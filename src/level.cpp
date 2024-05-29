@@ -2,6 +2,7 @@
 #include "consts.h"
 #include "level_editor.h"
 #include "scene.h"
+#include "cube.h"
 #include <iostream>
 #include <raylib.h>
 
@@ -10,10 +11,17 @@ Level::Level() {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Level Editor");
     SetTargetFPS(60);
 
+
+
+
     editor = new Editor::LevelEditor();
     editor->init();
 
     scene = new Editor::Scene();
+
+    Game::Cube* cube = new Game::Cube();
+    scene->game_objects.push_back(cube);
+
     scene->init();
 
 

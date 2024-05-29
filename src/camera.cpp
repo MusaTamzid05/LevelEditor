@@ -33,8 +33,8 @@ namespace Game {
 
     void Camera::update() {
         main_camera.position = position;
-        main_camera.target = position;
-        main_camera.up = position;
+        main_camera.target = target;
+        main_camera.up = up;
         main_camera.fovy = fovy;
     }
 
