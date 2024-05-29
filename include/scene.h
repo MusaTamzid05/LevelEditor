@@ -4,6 +4,11 @@
 
 #include "object.h"
 #include <raylib.h>
+#include <vector>
+
+namespace Game {
+    struct GameObject;
+}
 
 namespace Editor {
     struct Scene : Object {
@@ -15,6 +20,8 @@ namespace Editor {
         void update();
 
         Color background_color;
+
+        std::vector<Game::GameObject*> game_objects;
 
     };
 

@@ -22,6 +22,7 @@ SET(SOURCE_FILES
     src/camera.cpp
     src/scene.cpp
     src/view_object.cpp
+    src/game_object.cpp
     )
 
 
