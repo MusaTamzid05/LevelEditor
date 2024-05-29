@@ -4,6 +4,7 @@
 #include "scene.h"
 #include "cube.h"
 #include "property.h"
+#include "camera_property.h"
 #include <iostream>
 #include <raylib.h>
 
@@ -17,6 +18,7 @@ Level::Level() {
 
     editor = new Editor::LevelEditor();
     editor->property = new Editor::Property();
+    editor->property->widget_objects.push_back(new Editor::CameraProperty());
     editor->init();
 
     scene = new Editor::Scene();

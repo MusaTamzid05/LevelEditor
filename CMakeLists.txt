@@ -25,6 +25,7 @@ SET(SOURCE_FILES
     src/game_object.cpp
     src/cube.cpp
     src/property.cpp
+    src/camera_property.cpp
     )
 
 

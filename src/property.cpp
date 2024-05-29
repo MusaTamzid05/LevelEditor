@@ -44,6 +44,28 @@ namespace Editor {
                     ImGui::TableSetupColumn("Attributes");
                     ImGui::TableHeadersRow();
 
+                    for(int obj_i = 0; obj_i < widget_objects.size(); obj_i += 1) {
+                        ImGui::PushID(obj_i);
+
+                            WidgetObject* widget_object = widget_objects[obj_i] ;
+
+                            ImGui::TableNextRow();
+                            ImGui::TableSetColumnIndex(0);
+                            ImGui::AlignTextToFramePadding();
+                            bool node_open = ImGui::TreeNode(widget_object->name.c_str());
+
+                            ImGui::TableSetColumnIndex(1);
+                            ImGui::SetNextItemWidth(-FLT_MIN);
+
+                            if(node_open) {
+                                widget_object->render();
+                                ImGui::TreePop();
+                            }
+
+                        ImGui::PopID();
+
+                    }
+
 
                     ImGui::EndTable();
 
