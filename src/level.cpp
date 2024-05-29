@@ -3,6 +3,7 @@
 #include "level_editor.h"
 #include "scene.h"
 #include "cube.h"
+#include "property.h"
 #include <iostream>
 #include <raylib.h>
 
@@ -15,6 +16,7 @@ Level::Level() {
 
 
     editor = new Editor::LevelEditor();
+    editor->property = new Editor::Property();
     editor->init();
 
     scene = new Editor::Scene();

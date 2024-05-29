@@ -9,6 +9,7 @@ namespace Editor {
     struct Scene;
     struct Editor;
     struct ViewObject;
+    struct Property;
 
     struct LevelEditor {
         LevelEditor();
@@ -28,6 +29,7 @@ namespace Editor {
         MenuBar* menu_bar;
         Scene* scene;
         ViewObject* view ;
+        Property* property ;
 
 
 

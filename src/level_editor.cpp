@@ -4,6 +4,7 @@
 #include "menu_bar.h"
 #include "scene.h"
 #include "view_object.h"
+#include "property.h"
 
 
 namespace Editor {
@@ -23,6 +24,7 @@ namespace Editor {
 
         menu_bar = new MenuBar();;
         widget_objects.push_back(menu_bar);
+        widget_objects.push_back(property);
 
 
 
