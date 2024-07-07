@@ -9,6 +9,7 @@
 #include "message.h"
 #include "model3D.h"
 #include "model3D_property.h"
+#include "camera.h"
 #include <iostream>
 #include <raylib.h>
 
@@ -78,6 +79,8 @@ void Level::render() {
 
 
 void Level::update() {
+
+    Game::Camera::get_instance()->update();
     scene->update();
 
     while(!Game::Message::get_instance()->is_empty()) {

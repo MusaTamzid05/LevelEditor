@@ -43,7 +43,6 @@ namespace Editor {
 
     }
     void Scene::update() {
-        Game::Camera::get_instance()->update();
 
     }
 }
