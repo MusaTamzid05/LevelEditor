@@ -15,6 +15,7 @@ namespace Editor {
         WidgetObject::init();
         name = "Menu Bar";
         quit = false;
+        play = false;
 
     }
 
@@ -33,6 +34,17 @@ namespace Editor {
                     Game::Message::get_instance()->push(Game::Message::Type::CREATE_CUBE);
 
                 }
+
+                ImGui::EndMenu();
+            }
+
+            if(ImGui::BeginMenu("Game")) {
+                std::string play_text = play == true ? "Pause" : "Play";
+
+                if(ImGui::MenuItem(play_text.c_str()))  
+                    play = !play;
+
+
 
                 ImGui::EndMenu();
             }

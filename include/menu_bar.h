@@ -14,6 +14,7 @@ namespace Editor {
         void update();
 
         bool quit;
+        bool play;
 
     };
 

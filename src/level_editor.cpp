@@ -58,4 +58,8 @@ namespace Editor {
         return menu_bar->quit;
     }
 
+    bool LevelEditor::is_play() const {
+        return menu_bar->play;
+    }
+
 }

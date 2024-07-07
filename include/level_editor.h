@@ -23,6 +23,7 @@ namespace Editor {
         void update();
 
         bool is_menu_closed() const;
+        bool is_play() const;
 
         std::vector<WidgetObject*> widget_objects;
 
