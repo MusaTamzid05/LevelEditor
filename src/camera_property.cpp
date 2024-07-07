@@ -26,6 +26,13 @@ namespace Editor {
                     &Game::Camera::get_instance()->position.x
                     );
 
+            ImGui::Text("Rotation");
+            ImGui::DragFloat3("##rot",
+                    &Game::Camera::get_instance()->rotation.x
+                    );
+
+            /*
+
             ImGui::Text("Target");
             ImGui::DragFloat3("##target",
                     &Game::Camera::get_instance()->target.x
@@ -41,6 +48,8 @@ namespace Editor {
             ImGui::DragFloat("##fovt",
                     &Game::Camera::get_instance()->fovy
                     );
+
+            */
 
         ImGui::PopID();
 

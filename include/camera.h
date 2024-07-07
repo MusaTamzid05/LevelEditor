@@ -17,9 +17,12 @@ namespace Game {
             Camera3D get_camera() const;
 
             Vector3 position;
-            Vector3 target;
+            //Vector3 target;
             Vector3 up;
             float fovy;
+
+
+            Vector3 rotation;
 
         private:
             Camera();
