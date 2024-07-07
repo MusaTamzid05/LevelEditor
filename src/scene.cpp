@@ -43,6 +43,8 @@ namespace Editor {
 
     }
     void Scene::update() {
+        for(Game::GameObject* game_object : game_objects)
+            game_object->update();
 
     }
 }

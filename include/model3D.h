@@ -19,6 +19,13 @@ namespace Game {
 
         Model model;
 
+        // animation
+
+        int anime_count;
+        int anime_frame_count;
+        ModelAnimation* animation;
+
+
 
     };
 

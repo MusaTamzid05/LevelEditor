@@ -16,6 +16,9 @@ namespace Game {
         rotation = {0};
 
         model = LoadModel("../resources/timmy5.glb");
+        animation = LoadModelAnimations("../resources/timmy5.glb", &anime_count);
+        anime_frame_count = 0;
+
 
 
     }
@@ -39,6 +42,13 @@ namespace Game {
     }
 
     void Model3D::update() {
+        anime_frame_count += 1;
+        UpdateModelAnimation(model, animation[0], anime_frame_count);
+        
+        if(anime_frame_count >= animation[0].frameCount)
+            anime_frame_count = 0;
+
+
 
     }
 
