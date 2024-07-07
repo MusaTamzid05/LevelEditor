@@ -28,6 +28,7 @@ SET(SOURCE_FILES
     src/camera_property.cpp
     src/cube_property.cpp
     src/message.cpp
+    src/model3D.cpp
     )
 
 
