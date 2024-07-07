@@ -29,6 +29,7 @@ SET(SOURCE_FILES
     src/cube_property.cpp
     src/message.cpp
     src/model3D.cpp
+    src/model3D_property.cpp
     )
 
 
