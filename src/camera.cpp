@@ -29,12 +29,8 @@ namespace Game {
         rotation = {0};
         up = (Vector3){0.0f, 1.0f, 0.0f};
 
-        fovy = 60.0f;
-        main_camera.projection = CAMERA_PERSPECTIVE;
+        init_defaults();
 
-        main_camera.position = position;
-        main_camera.up = up;
-        main_camera.fovy = fovy;
 
     }
 
@@ -85,6 +81,13 @@ namespace Game {
         rotation.y =  std::stof(rotation_data[1]);
         rotation.z =  std::stof(rotation_data[2]);
 
+        init_defaults();
+
+
+
+    }
+
+    void Camera::init_defaults() {
         up = (Vector3){0.0f, 1.0f, 0.0f};
 
         fovy = 60.0f;
@@ -93,7 +96,6 @@ namespace Game {
         main_camera.position = position;
         main_camera.up = up;
         main_camera.fovy = fovy;
-
 
     }
 

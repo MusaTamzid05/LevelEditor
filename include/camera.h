@@ -21,6 +21,8 @@ namespace Game {
             std::string get_data() const;
             void load(const std::vector<std::string>& data);
 
+            void init_defaults();
+
             Vector3 position;
             //Vector3 target;
             Vector3 up;
