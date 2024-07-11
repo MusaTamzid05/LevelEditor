@@ -12,10 +12,11 @@
 #include "camera.h"
 #include <iostream>
 #include <raylib.h>
+#include <fstream>
 
 
 Level::Level() {
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Level Editor");
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, LEVEL_NAME.c_str());
     SetTargetFPS(60);
 
 
@@ -110,9 +111,11 @@ void Level::update() {
 void Level::save() const {
     std::string data = Game::Camera::get_instance()->get_data() + "\n";
     data += scene->get_data();
-    std::cout << data << "\n";
 
+    std::ofstream output(LEVEL_NAME + ".level");
+    output << data;
 
+    output.close();
 
 }
 
