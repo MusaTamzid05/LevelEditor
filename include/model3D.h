@@ -3,6 +3,7 @@
 
 #include "game_object.h"
 #include <raylib.h>
+#include <vector>
 
 namespace Game {
 
@@ -15,6 +16,9 @@ namespace Game {
         void update();
 
         std::string get_data() const;
+        void load(const std::vector<std::string>& data);
+
+        void init_defaults();
 
         Vector3 position;
         Vector3 rotation;

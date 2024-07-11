@@ -86,7 +86,7 @@ void Level::load() {
 
         if(game_object_data[0] == "model") {
             Game::Model3D* model = new Game::Model3D();
-            model->init();
+            model->load(game_object_data);
             editor->property->widget_objects.push_back(new Editor::Model3DProperty(model));
             scene->game_objects.push_back(model);
         }
