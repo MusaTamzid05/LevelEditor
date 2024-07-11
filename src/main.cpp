@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
     level.save();
     */
 
-    for(std::string line : Engine::get_lines(LEVEL_NAME + ".level")) 
-        std::cout << line << "\n";
+    for(std::string word : Engine::split("data1|data2|data3", '|')) 
+        std::cout << word << "\n";
     return 0;
 }

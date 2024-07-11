@@ -24,4 +24,27 @@ namespace Engine {
         return lines;
 
     }
+
+
+    std::vector<std::string> split(const std::string& str, char target) {
+        std::vector<std::string> parts;
+
+        std::string temp = "";
+
+        for(char ch : str) {
+
+            if(ch == target) {
+                parts.push_back(temp);
+                temp = "";;
+                continue;
+
+            }
+
+            temp += ch;
+        }
+
+        parts.push_back(temp);
+        return parts;
+
+    }
 }

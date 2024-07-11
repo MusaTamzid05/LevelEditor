@@ -6,6 +6,7 @@
 
 namespace Engine {
     std::vector<std::string> get_lines(const std::string& path);
+    std::vector<std::string> split(const std::string& str, char target);
 }
 
 #endif
