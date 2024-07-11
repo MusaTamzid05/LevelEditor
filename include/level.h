@@ -12,6 +12,8 @@ struct Level {
     Level();
     virtual ~Level();
 
+    void init();
+    void load();
     void start();
     void update();
     void render();

@@ -13,9 +13,24 @@
 #include <iostream>
 #include <raylib.h>
 #include <fstream>
+#include "utils.h"
 
 
 Level::Level() {
+
+
+}
+
+
+Level::~Level() {
+    delete scene;
+    delete editor;
+    CloseWindow();
+
+}
+
+
+void Level::init() {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, LEVEL_NAME.c_str());
     SetTargetFPS(60);
 
@@ -40,6 +55,7 @@ Level::Level() {
     scene->game_objects.push_back(cube);
     */
 
+    Game::Camera::get_instance()->init();
     editor->init();
     scene->init();
 
@@ -48,12 +64,36 @@ Level::Level() {
 
 }
 
+void Level::load() {
 
-Level::~Level() {
-    delete scene;
-    delete editor;
-    CloseWindow();
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, LEVEL_NAME.c_str());
+    SetTargetFPS(60);
+    std::vector<std::string> level_data = Engine::get_lines(LEVEL_NAME + ".level");
 
+    editor = new Editor::LevelEditor();
+    editor->property = new Editor::Property();
+    scene = new Editor::Scene();
+
+
+    for(std::string line : level_data) {
+        std::vector<std::string> game_object_data = Engine::split(line, '|');
+
+        if(game_object_data[0] == "camera") {
+            Game::Camera::get_instance()->load(game_object_data);
+            editor->property->widget_objects.push_back(new Editor::CameraProperty());
+
+        }
+
+        if(game_object_data[0] == "model") {
+            Game::Model3D* model = new Game::Model3D();
+            model->init();
+            editor->property->widget_objects.push_back(new Editor::Model3DProperty(model));
+            scene->game_objects.push_back(model);
+        }
+    }
+
+    editor->init();
+    scene->load();
 }
 
 void Level::start() {

@@ -1,5 +1,6 @@
 #include "camera.h"
 #include <math.h>
+#include "utils.h"
 
 namespace Game {
     Camera* Camera::instance = nullptr;
@@ -65,6 +66,34 @@ namespace Game {
         data +=  std::to_string(rotation.z);
 
         return data;
+
+    }
+
+
+    void Camera::load(const std::vector<std::string>& data) {
+        std::vector<std::string> position_data = Engine::split(data[1], ',');
+
+        position.x =  std::stof(position_data[0]);
+        position.y =  std::stof(position_data[1]);
+        position.z =  std::stof(position_data[2]);
+
+
+        std::vector<std::string> rotation_data = Engine::split(data[2], ',');
+
+
+        rotation.x =  std::stof(rotation_data[0]);
+        rotation.y =  std::stof(rotation_data[1]);
+        rotation.z =  std::stof(rotation_data[2]);
+
+        up = (Vector3){0.0f, 1.0f, 0.0f};
+
+        fovy = 60.0f;
+        main_camera.projection = CAMERA_PERSPECTIVE;
+
+        main_camera.position = position;
+        main_camera.up = up;
+        main_camera.fovy = fovy;
+
 
     }
 

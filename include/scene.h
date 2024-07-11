@@ -17,6 +17,7 @@ namespace Editor {
         virtual ~Scene();
 
         void init();
+        void load();
         void render();
         void update();
         std::string get_data() const;

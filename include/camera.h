@@ -3,6 +3,7 @@
 
 #include <raylib.h>
 #include <string>
+#include <vector>
 
 namespace Game {
     class Camera {
@@ -18,6 +19,7 @@ namespace Game {
             Camera3D get_camera() const;
 
             std::string get_data() const;
+            void load(const std::vector<std::string>& data);
 
             Vector3 position;
             //Vector3 target;

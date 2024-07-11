@@ -16,14 +16,13 @@ namespace Editor {
 
     void Scene::init() {
         background_color = (Color){ 51, 77, 77, 255};
-        Game::Camera::get_instance()->init();
 
         for(Game::GameObject* game_object : game_objects)
             game_object->init();
+    }
 
-
-
-
+    void Scene::load() {
+        background_color = (Color){ 51, 77, 77, 255};
     }
 
     void Scene::render() {
