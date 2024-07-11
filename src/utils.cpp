@@ -47,4 +47,17 @@ namespace Engine {
         return parts;
 
     }
+
+
+    bool file_exists(const std::string& path) {
+        std::ifstream input(path);
+
+        if(!input.is_open()) 
+            return false;
+
+        input.close();
+        return true;
+
+
+    }
 }
