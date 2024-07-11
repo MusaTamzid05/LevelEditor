@@ -30,6 +30,7 @@ SET(SOURCE_FILES
     src/message.cpp
     src/model3D.cpp
     src/model3D_property.cpp
+    src/utils.cpp
     )
 
 
