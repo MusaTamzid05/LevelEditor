@@ -14,6 +14,8 @@ namespace Game {
         void render();
         void update();
 
+        std::string get_data() const;
+
         Vector3 position;
 
 

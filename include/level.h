@@ -16,6 +16,8 @@ struct Level {
     void update();
     void render();
 
+    void save() const;
+
     Editor::LevelEditor* editor;
     Editor::Scene* scene;
 

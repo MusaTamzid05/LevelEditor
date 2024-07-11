@@ -104,6 +104,15 @@ void Level::update() {
         }
 
     }
+
+}
+
+void Level::save() const {
+    std::string data = scene->get_data();
+    std::cout << data << "\n";
+
+
+
 }
 
 

@@ -10,4 +10,11 @@ namespace Game {
 
     }
 
+
+
+    std::string GameObject::get_data() const {
+        return "";
+
+    }
+
 }

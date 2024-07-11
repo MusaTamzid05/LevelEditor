@@ -5,6 +5,7 @@
 #include "object.h"
 #include <raylib.h>
 #include <vector>
+#include <string>
 
 namespace Game {
     struct GameObject;
@@ -18,6 +19,7 @@ namespace Editor {
         void init();
         void render();
         void update();
+        std::string get_data() const;
 
         Color background_color;
 

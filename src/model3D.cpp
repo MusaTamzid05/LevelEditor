@@ -52,4 +52,18 @@ namespace Game {
 
     }
 
+
+    std::string Model3D::get_data() const {
+        std::string data;
+        data += "model|" + std::to_string(position.x) + ",";
+        data +=  std::to_string(position.y) + ",";
+        data +=  std::to_string(position.z) + "|";
+        data +=  std::to_string(rotation.x) + ",";
+        data +=  std::to_string(rotation.y) + ",";
+        data +=  std::to_string(rotation.z);
+
+        return data;
+
+    }
+
 }

@@ -42,9 +42,28 @@ namespace Editor {
 
 
     }
+
     void Scene::update() {
         for(Game::GameObject* game_object : game_objects)
             game_object->update();
 
     }
+
+    std::string Scene::get_data() const {
+        std::string data = "";
+
+        for(Game::GameObject* game_object : game_objects) 
+            data += game_object->get_data();
+
+        return data;
+
+
+    }
 }
+
+
+
+
+
+
+
