@@ -108,7 +108,8 @@ void Level::update() {
 }
 
 void Level::save() const {
-    std::string data = scene->get_data();
+    std::string data = Game::Camera::get_instance()->get_data() + "\n";
+    data += scene->get_data();
     std::cout << data << "\n";
 
 

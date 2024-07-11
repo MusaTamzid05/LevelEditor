@@ -55,5 +55,19 @@ namespace Game {
     }
 
 
+    std::string Camera::get_data() const {
+        std::string data;
+        data += "camera|" + std::to_string(position.x) + ",";
+        data +=  std::to_string(position.y) + ",";
+        data +=  std::to_string(position.z) + "|";
+        data +=  std::to_string(rotation.x) + ",";
+        data +=  std::to_string(rotation.y) + ",";
+        data +=  std::to_string(rotation.z);
+
+        return data;
+
+    }
+
+
 }
 

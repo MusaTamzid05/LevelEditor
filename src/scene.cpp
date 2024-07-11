@@ -53,7 +53,7 @@ namespace Editor {
         std::string data = "";
 
         for(Game::GameObject* game_object : game_objects) 
-            data += game_object->get_data();
+            data += game_object->get_data() + "\n";
 
         return data;
 

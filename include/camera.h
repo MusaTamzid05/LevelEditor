@@ -2,6 +2,7 @@
 #define CAMERA_H
 
 #include <raylib.h>
+#include <string>
 
 namespace Game {
     class Camera {
@@ -15,6 +16,8 @@ namespace Game {
 
             static Camera* get_instance();
             Camera3D get_camera() const;
+
+            std::string get_data() const;
 
             Vector3 position;
             //Vector3 target;
