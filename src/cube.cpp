@@ -1,5 +1,6 @@
 #include "cube.h"
 #include <iostream>
+#include "utils.h"
 
 namespace Game {
 
@@ -42,6 +43,15 @@ namespace Game {
         data +=  std::to_string(position.z);
 
         return data;
+
+    }
+
+    void Cube::load(const std::vector<std::string>& data) {
+        std::vector<std::string> position_data = Engine::split(data[1], ',');
+
+        position.x =  std::stof(position_data[0]);
+        position.y =  std::stof(position_data[1]);
+        position.z =  std::stof(position_data[2]);
 
     }
 
