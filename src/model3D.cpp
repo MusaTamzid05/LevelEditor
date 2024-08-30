@@ -42,11 +42,11 @@ namespace Game {
     }
 
     void Model3D::update() {
-        anime_frame_count += 1;
-        UpdateModelAnimation(model, animation[0], anime_frame_count);
+        anim_frame_count += 1;
+        UpdateModelAnimation(model, animation[0], anim_frame_count);
         
-        if(anime_frame_count >= animation[0].frameCount)
-            anime_frame_count = 0;
+        if(anim_frame_count >= animation[0].frameCount)
+            anim_frame_count = 0;
 
 
 
@@ -90,8 +90,8 @@ namespace Game {
 
     void Model3D::init_defaults() {
         model = LoadModel("../resources/timmy5.glb");
-        animation = LoadModelAnimations("../resources/timmy5.glb", &anime_count);
-        anime_frame_count = 0;
+        animation = LoadModelAnimations("../resources/timmy5.glb", &anim_count);
+        anim_frame_count = 0;
 
     }
 
