@@ -46,6 +46,7 @@ void Level::init() {
     Game::Model3D* model = new Game::Model3D();
     editor->property->widget_objects.push_back(new Editor::Model3DProperty(model));
     scene->game_objects.push_back(model);
+    scene->player = model;
 
     /*
     Game::Cube* cube = new Game::Cube();
@@ -93,6 +94,7 @@ void Level::load() {
 
             editor->property->widget_objects.push_back(property);
             scene->game_objects.push_back(model);
+            scene->player = model;
         }
 
         if(game_object_data[0] == "cube") {

@@ -19,6 +19,7 @@ namespace Game {
         void load(const std::vector<std::string>& data);
 
         void init_defaults();
+        void next_animation();
 
         Vector3 position;
         Vector3 rotation;
@@ -29,6 +30,7 @@ namespace Game {
 
         int anim_count;
         int anim_frame_count;
+        int anim_index;
         ModelAnimation* animation;
 
 

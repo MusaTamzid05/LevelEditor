@@ -1,5 +1,6 @@
 #include "scene.h"
 #include "camera.h"
+#include "model3D.h"
 #include "game_object.h"
 #include <iostream>
 
@@ -43,6 +44,11 @@ namespace Editor {
     }
 
     void Scene::update() {
+
+        if(IsKeyPressed(KEY_P)) 
+            player->next_animation();
+
+
         for(Game::GameObject* game_object : game_objects)
             game_object->update();
 
