@@ -1,5 +1,7 @@
 #include "model3D.h"
 #include <raymath.h>
+#include <raylib.h>
+#include <iostream>
 #include "utils.h"
 
 namespace Game {
@@ -49,6 +51,10 @@ namespace Game {
             anim_frame_count = 0;
 
 
+        position.x += velocity.x * GetFrameTime();
+        position.z += velocity.y * GetFrameTime();
+
+
 
     }
 
@@ -94,6 +100,8 @@ namespace Game {
         anim_frame_count = 0;
         anim_index = 0;
 
+        velocity = (Vector2) { 0.0f, 0.0f};
+
     }
 
     void Model3D::next_animation() {
@@ -119,7 +127,14 @@ namespace Game {
     }
 
 
+    void Model3D::add_velocity(const Vector2& velocity) {
+        this->velocity.x += velocity.x;
+        this->velocity.y += velocity.y;
+    }
 
+    void Model3D::reset_velocity() {
+        velocity = (Vector2) { 0.0f, 0.0f};
+    }
 
 
 }

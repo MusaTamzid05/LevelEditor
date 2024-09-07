@@ -25,6 +25,9 @@ namespace Game {
         void turn_forward();
         void turn_backward();
 
+        void add_velocity(const Vector2& velocity);
+        void reset_velocity();
+
         Vector3 position;
         Vector3 rotation;
 
@@ -41,6 +44,8 @@ namespace Game {
         const float RIGHT_DIRECTION = 0.0f;
         const float FORWARD_DIRECTION = 270.0f;
         const float BACKWARD_DIRECTION = 90.0f;
+
+        Vector2 velocity;
 
 
 
