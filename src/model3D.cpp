@@ -101,5 +101,25 @@ namespace Game {
 
     }
 
+    void Model3D::turn_left() {
+        rotation.z = LEFT_DIRECTION;
+    }
+
+    void Model3D::turn_right() {
+        rotation.z = RIGHT_DIRECTION;
+    }
+
+
+    void Model3D::turn_forward() {
+        rotation.z = FORWARD_DIRECTION;
+    }
+
+    void Model3D::turn_backward() {
+        rotation.z = BACKWARD_DIRECTION;
+    }
+
+
+
+
 
 }

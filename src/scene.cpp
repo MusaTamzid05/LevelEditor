@@ -45,8 +45,23 @@ namespace Editor {
 
     void Scene::update() {
 
-        if(IsKeyPressed(KEY_P)) 
-            player->next_animation();
+        if(IsKeyDown(KEY_A))  {
+            player->turn_left();
+        }
+
+        if(IsKeyDown(KEY_D))  {
+            player->turn_right();
+        }
+
+
+        if(IsKeyDown(KEY_W))  {
+            player->turn_forward();
+        }
+
+
+        if(IsKeyDown(KEY_S))  {
+            player->turn_backward();
+        }
 
 
         for(Game::GameObject* game_object : game_objects)
