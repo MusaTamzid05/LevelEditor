@@ -7,6 +7,12 @@
 
 namespace Game {
     struct Model3D : GameObject {
+
+        enum Animation {
+            IDLE,
+            RUN 
+        };
+
         Model3D();
         virtual ~Model3D();
 

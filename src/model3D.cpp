@@ -98,7 +98,7 @@ namespace Game {
         model = LoadModel("../resources/anim3.glb");
         animation = LoadModelAnimations("../resources/anim3.glb", &anim_count);
         anim_frame_count = 0;
-        anim_index = 0;
+        anim_index = IDLE;
 
         velocity = (Vector2) { 0.0f, 0.0f};
 
@@ -110,19 +110,23 @@ namespace Game {
     }
 
     void Model3D::turn_left() {
+        anim_index = RUN;
         rotation.z = LEFT_DIRECTION;
     }
 
     void Model3D::turn_right() {
+        anim_index = RUN;
         rotation.z = RIGHT_DIRECTION;
     }
 
 
     void Model3D::turn_forward() {
+        anim_index = RUN;
         rotation.z = FORWARD_DIRECTION;
     }
 
     void Model3D::turn_backward() {
+        anim_index = RUN;
         rotation.z = BACKWARD_DIRECTION;
     }
 
@@ -133,6 +137,7 @@ namespace Game {
     }
 
     void Model3D::reset_velocity() {
+        anim_index = IDLE;
         velocity = (Vector2) { 0.0f, 0.0f};
     }
 
