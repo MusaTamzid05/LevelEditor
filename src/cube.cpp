@@ -17,6 +17,7 @@ namespace Game {
     void Cube::init() {
         position = (Vector3) {1.0f, 1.0f, 0.0f};
         color = (Vector3) {0.0f, 0.0f, 0.0f};
+        scale = (Vector3) {2.0f, 2.0f, 2.0f};
 
     }
 
@@ -30,9 +31,9 @@ namespace Game {
 
         DrawCube(
                 position,
-                2.0f,
-                2.0f,
-                2.0f,
+                scale.x,
+                scale.y,
+                scale.z,
                 cube_color
                 );
 
@@ -53,7 +54,12 @@ namespace Game {
 
         data +=  std::to_string(color.x) + ",";
         data +=  std::to_string(color.y) + ",";
-        data +=  std::to_string(color.z);
+        data +=  std::to_string(color.z) + "|";
+
+
+        data +=  std::to_string(scale.x) + ",";
+        data +=  std::to_string(scale.y) + ",";
+        data +=  std::to_string(scale.z);
 
         return data;
 
@@ -72,6 +78,13 @@ namespace Game {
         color.x =  std::stof(color_data[0]);
         color.y =  std::stof(color_data[1]);
         color.z =  std::stof(color_data[2]);
+
+
+        std::vector<std::string> scale_data = Engine::split(data[3], ',');
+
+        scale.x =  std::stof(scale_data[0]);
+        scale.y =  std::stof(scale_data[1]);
+        scale.z =  std::stof(scale_data[2]);
 
 
 

@@ -28,6 +28,12 @@ namespace Editor {
                     );
 
 
+            ImGui::Text("Scale");
+            ImGui::DragFloat3("##scale",
+                    &cube->scale.x
+                    );
+
+
             ImGui::Text("Color");
             ImGui::ColorEdit3(
                     "#color",

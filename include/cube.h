@@ -20,6 +20,7 @@ namespace Game {
 
         Vector3 position;
         Vector3 color;
+        Vector3 scale;
 
 
     };
