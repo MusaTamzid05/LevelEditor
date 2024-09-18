@@ -28,6 +28,14 @@ namespace Editor {
                     );
 
 
+            ImGui::Text("Color");
+            ImGui::ColorEdit3(
+                    "#color",
+                    (float*)&cube->color
+                    );
+
+
+
         ImGui::PopID();
 
 

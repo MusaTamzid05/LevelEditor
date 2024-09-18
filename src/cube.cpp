@@ -16,16 +16,24 @@ namespace Game {
 
     void Cube::init() {
         position = (Vector3) {1.0f, 1.0f, 0.0f};
+        color = (Vector3) {0.0f, 0.0f, 0.0f};
 
     }
 
     void Cube::render() {
+
+        Color cube_color;
+        cube_color.r = color.x * 255.0f;
+        cube_color.g = color.y * 255.0f;
+        cube_color.b  = color.z * 255.0f;
+        cube_color.a  = 255.0f;
+
         DrawCube(
                 position,
                 2.0f,
                 2.0f,
                 2.0f,
-                RED
+                cube_color
                 );
 
 
@@ -52,6 +60,9 @@ namespace Game {
         position.x =  std::stof(position_data[0]);
         position.y =  std::stof(position_data[1]);
         position.z =  std::stof(position_data[2]);
+
+
+        color = (Vector3) {0.0f, 0.0f, 0.0f};
 
     }
 

@@ -19,6 +19,7 @@ namespace Game {
         void load(const std::vector<std::string>& data);
 
         Vector3 position;
+        Vector3 color;
 
 
     };
