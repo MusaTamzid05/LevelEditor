@@ -48,7 +48,12 @@ namespace Game {
         std::string data;
         data += "cube|" + std::to_string(position.x) + ",";
         data +=  std::to_string(position.y) + ",";
-        data +=  std::to_string(position.z);
+        data +=  std::to_string(position.z) + "|";
+
+
+        data +=  std::to_string(color.x) + ",";
+        data +=  std::to_string(color.y) + ",";
+        data +=  std::to_string(color.z);
 
         return data;
 
@@ -62,7 +67,14 @@ namespace Game {
         position.z =  std::stof(position_data[2]);
 
 
-        color = (Vector3) {0.0f, 0.0f, 0.0f};
+        std::vector<std::string> color_data = Engine::split(data[2], ',');
+
+        color.x =  std::stof(color_data[0]);
+        color.y =  std::stof(color_data[1]);
+        color.z =  std::stof(color_data[2]);
+
+
+
 
     }
 
