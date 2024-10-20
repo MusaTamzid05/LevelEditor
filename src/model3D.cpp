@@ -37,7 +37,7 @@ namespace Game {
 
         DrawModel(model,
                 position,
-                1.0f,
+                0.01f,
                 WHITE
                 );
 
