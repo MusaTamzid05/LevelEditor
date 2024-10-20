@@ -51,8 +51,6 @@ namespace Game {
             anim_frame_count = 0;
 
 
-        position.x += velocity.x * GetFrameTime();
-        position.z += velocity.y * GetFrameTime();
 
 
 
@@ -100,7 +98,6 @@ namespace Game {
         anim_frame_count = 0;
         anim_index = IDLE;
 
-        velocity = (Vector2) { 0.0f, 0.0f};
 
     }
 
@@ -131,14 +128,13 @@ namespace Game {
     }
 
 
-    void Model3D::add_velocity(const Vector2& velocity) {
-        this->velocity.x += velocity.x;
-        this->velocity.y += velocity.y;
+    void Model3D::add_position(const Vector2& position) {
+        this->position.x += position.x * GetFrameTime();
+        this->position.z += position.y * GetFrameTime();
     }
 
-    void Model3D::reset_velocity() {
+    void Model3D::set_idle() {
         anim_index = IDLE;
-        velocity = (Vector2) { 0.0f, 0.0f};
     }
 
 
