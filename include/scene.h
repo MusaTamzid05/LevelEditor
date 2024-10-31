@@ -4,12 +4,10 @@
 
 #include "object.h"
 #include <raylib.h>
-#include <vector>
 #include <string>
 
 namespace Game {
-    struct GameObject;
-    struct Model3D;
+    struct GameData;
 }
 
 namespace Editor {
@@ -24,9 +22,7 @@ namespace Editor {
         std::string get_data() const;
 
         Color background_color;
-        std::vector<Game::GameObject*> game_objects;
-
-        Game::Model3D* player;
+        Game::GameData* game_data;
 
     };
 

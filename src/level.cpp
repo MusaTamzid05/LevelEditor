@@ -14,6 +14,7 @@
 #include <raylib.h>
 #include <fstream>
 #include "utils.h"
+#include "game_data.h"
 
 
 Level::Level() {
@@ -45,8 +46,8 @@ void Level::init() {
 
     Game::Model3D* model = new Game::Model3D();
     editor->property->widget_objects.push_back(new Editor::Model3DProperty(model));
-    scene->game_objects.push_back(model);
-    scene->player = model;
+    scene->game_data->game_objects.push_back(model);
+    scene->game_data->player = model;
 
     /*
     Game::Cube* cube = new Game::Cube();
@@ -93,8 +94,8 @@ void Level::load() {
             property->init();
 
             editor->property->widget_objects.push_back(property);
-            scene->game_objects.push_back(model);
-            scene->player = model;
+            scene->game_data->game_objects.push_back(model);
+            scene->game_data->player = model;
         }
 
         if(game_object_data[0] == "cube") {
@@ -106,7 +107,7 @@ void Level::load() {
             property->init();
 
             editor->property->widget_objects.push_back(property);
-            scene->game_objects.push_back(cube);
+            scene->game_data->game_objects.push_back(cube);
         }
     }
 
@@ -155,7 +156,7 @@ void Level::update() {
                 cube->init();
                 property->init();
 
-                scene->game_objects.push_back(cube);
+                scene->game_data->game_objects.push_back(cube);
                 editor->property->widget_objects.push_back(property);
 
 

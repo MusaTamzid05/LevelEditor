@@ -3,23 +3,26 @@
 #include "model3D.h"
 #include "consts.h"
 #include "game_object.h"
+#include "game_data.h"
 #include <iostream>
 
 namespace Editor {
     Scene::Scene() {
-
+        game_data = new Game::GameData();
     }
 
     Scene::~Scene() {
-        for(Game::GameObject* game_object : game_objects)
+        for(Game::GameObject* game_object : game_data->game_objects)
             delete game_object;
+
+        delete game_data;
 
     }
 
     void Scene::init() {
         background_color = (Color){ 51, 77, 77, 255};
 
-        for(Game::GameObject* game_object : game_objects)
+        for(Game::GameObject* game_object : game_data->game_objects)
             game_object->init();
     }
 
@@ -33,7 +36,7 @@ namespace Editor {
                 Game::Camera::get_instance()->get_camera()
                 );
 
-                for(Game::GameObject* game_object : game_objects)
+                for(Game::GameObject* game_object : game_data->game_objects)
                     game_object->render();
 
             // render code
@@ -47,25 +50,25 @@ namespace Editor {
     void Scene::update() {
 
         if(IsKeyDown(KEY_A))  {
-            player->turn_left();
-            player->add_position((Vector2){0.0f, -PLAYER_SPEED});
+            game_data->player->turn_left();
+            game_data->player->add_position((Vector2){0.0f, -PLAYER_SPEED});
         }
 
         if(IsKeyDown(KEY_D))  {
-            player->turn_right();
-            player->add_position((Vector2){0.0f, PLAYER_SPEED});
+            game_data->player->turn_right();
+            game_data->player->add_position((Vector2){0.0f, PLAYER_SPEED});
         }
 
 
         if(IsKeyDown(KEY_W))  {
-            player->turn_forward();
-            player->add_position((Vector2){PLAYER_SPEED , 0.0f});
+            game_data->player->turn_forward();
+            game_data->player->add_position((Vector2){PLAYER_SPEED , 0.0f});
         }
 
 
         if(IsKeyDown(KEY_S))  {
-            player->turn_backward();
-            player->add_position((Vector2){-PLAYER_SPEED , 0.0f});
+            game_data->player->turn_backward();
+            game_data->player->add_position((Vector2){-PLAYER_SPEED , 0.0f});
         }
 
         bool key_release = IsKeyReleased(KEY_A) || 
@@ -75,12 +78,12 @@ namespace Editor {
 
 
         if(key_release) 
-            player->set_idle();
+            game_data->player->set_idle();
 
 
 
 
-        for(Game::GameObject* game_object : game_objects)
+        for(Game::GameObject* game_object : game_data->game_objects)
             game_object->update();
 
     }
@@ -88,7 +91,7 @@ namespace Editor {
     std::string Scene::get_data() const {
         std::string data = "";
 
-        for(Game::GameObject* game_object : game_objects) 
+        for(Game::GameObject* game_object : game_data->game_objects) 
             data += game_object->get_data() + "\n";
 
         return data;
