@@ -35,7 +35,7 @@ Level::~Level() {
 
 
 void Level::init() {
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, LEVEL_NAME.c_str());
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, LEVEL_NAME_.c_str());
     SetTargetFPS(60);
 
 
@@ -71,9 +71,9 @@ void Level::init() {
 
 void Level::load() {
 
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, LEVEL_NAME.c_str());
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, LEVEL_NAME_.c_str());
     SetTargetFPS(60);
-    std::vector<std::string> level_data = Engine::get_lines(LEVEL_NAME + ".level");
+    std::vector<std::string> level_data = Engine::get_lines(LEVEL_PATH);
 
     editor = new Editor::LevelEditor();
     editor->property = new Editor::Property();
@@ -183,7 +183,7 @@ void Level::save() const {
     std::string data = Game::Camera::get_instance()->get_data() + "\n";
     data += scene->get_data();
 
-    std::ofstream output(LEVEL_NAME + ".level");
+    std::ofstream output(LEVEL_PATH);
     output << data;
 
     output.close();

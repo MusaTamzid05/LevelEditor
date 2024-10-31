@@ -5,14 +5,13 @@
 
 int main(int argc, char** argv) {
     Level level;
-    std::string level_path = LEVEL_NAME + ".level";
 
-    if(Engine::file_exists(level_path)) {
-        std::cout << "Loadng " << level_path << "\n";
+    if(Engine::file_exists(LEVEL_PATH)) {
+        std::cout << "Loadng " << LEVEL_PATH << "\n";
         level.load();
     }
     else {
-        std::cout << "Creating " << level_path << "\n";
+        std::cout << "Creating " << LEVEL_PATH << "\n";
         level.init();
 
     }
