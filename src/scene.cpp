@@ -5,12 +5,13 @@
 #include "game_object.h"
 #include "game_data.h"
 #include "pause_state.h"
+#include "state_machine.h"
 #include <iostream>
+#include "play_state.h"
 
 namespace Editor {
     Scene::Scene() {
         game_data = new Game::GameData();
-        pause_state = new Game::PauseState();
     }
 
     Scene::~Scene() {
@@ -26,10 +27,20 @@ namespace Editor {
 
         for(Game::GameObject* game_object : game_data->game_objects)
             game_object->init();
+
+        Game::StateMachine::get_instance()->change(
+                new Game::PlayState(),
+                game_data
+                );
     }
 
     void Scene::load() {
         background_color = (Color){ 51, 77, 77, 255};
+
+        Game::StateMachine::get_instance()->change(
+                new Game::PlayState(),
+                game_data
+                );
     }
 
     void Scene::render() {
@@ -37,7 +48,7 @@ namespace Editor {
         BeginMode3D(
                 Game::Camera::get_instance()->get_camera()
                 );
-            pause_state->render(game_data);
+            Game::StateMachine::get_instance()->current_state->render(game_data);
 
 
         EndMode3D();
@@ -47,7 +58,7 @@ namespace Editor {
     }
 
     void Scene::update() {
-        pause_state->update(game_data);
+        Game::StateMachine::get_instance()->current_state->update(game_data);
         /*
         if(IsKeyDown(KEY_A))  {
             game_data->player->turn_left();
