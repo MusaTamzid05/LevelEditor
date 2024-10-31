@@ -18,7 +18,6 @@ namespace Game {
         void update(GameData* game_data);
         void exit(GameData* game_data);
 
-        State type;
 
 
     };

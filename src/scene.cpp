@@ -29,7 +29,7 @@ namespace Editor {
             game_object->init();
 
         Game::StateMachine::get_instance()->change(
-                new Game::PlayState(),
+                new Game::PauseState(),
                 game_data
                 );
     }
@@ -38,7 +38,7 @@ namespace Editor {
         background_color = (Color){ 51, 77, 77, 255};
 
         Game::StateMachine::get_instance()->change(
-                new Game::PlayState(),
+                new Game::PauseState(),
                 game_data
                 );
     }

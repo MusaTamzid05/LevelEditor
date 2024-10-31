@@ -6,7 +6,7 @@
 
 namespace Game {
     PlayState::PlayState() {
-        type = PAUSE;
+        type = PLAY;
     }
 
     PlayState::~PlayState() {
@@ -57,6 +57,7 @@ namespace Game {
             game_data->player->set_idle();
 
         GameState::update(game_data);
+
     }
 
 

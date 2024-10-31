@@ -15,6 +15,9 @@
 #include <fstream>
 #include "utils.h"
 #include "game_data.h"
+#include "state_machine.h"
+#include "play_state.h"
+#include "pause_state.h"
 
 
 Level::Level() {
@@ -147,7 +150,7 @@ void Level::update() {
         Game::Message::Type message_type = Game::Message::get_instance()->pop();
 
         switch(message_type) {
-            case Game::Message::Type::CREATE_CUBE:
+            case Game::Message::Type::CREATE_CUBE: {
                 Game::Cube* cube = new Game::Cube();
                 Editor::CubeProperty* property = new Editor::CubeProperty(cube);
 
@@ -156,8 +159,19 @@ void Level::update() {
 
                 scene->game_data->game_objects.push_back(cube);
                 editor->property->widget_objects.push_back(property);
+                break;
 
+                }
+            case Game::Message::Type::PLAY:
+                std::cout << "play\n";
+                Game::StateMachine::get_instance()->change(new Game::PlayState(), 
+                        scene->game_data);
+                break;
 
+            case Game::Message::Type::PAUSE:
+                std::cout << "pause\n";
+                Game::StateMachine::get_instance()->change(new Game::PauseState(), 
+                        scene->game_data);
                 break;
         }
 

@@ -41,8 +41,16 @@ namespace Editor {
             if(ImGui::BeginMenu("Game")) {
                 std::string play_text = play == true ? "Pause" : "Play";
 
-                if(ImGui::MenuItem(play_text.c_str()))  
+                if(ImGui::MenuItem(play_text.c_str())) {
                     play = !play;
+
+                    if(play)
+                        Game::Message::get_instance()->push(Game::Message::Type::PLAY);
+                    else
+                        Game::Message::get_instance()->push(Game::Message::Type::PAUSE);
+
+                }
+
 
 
 

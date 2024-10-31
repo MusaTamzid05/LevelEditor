@@ -8,7 +8,9 @@ namespace Game {
         public:
 
             enum Type {
-                CREATE_CUBE
+                CREATE_CUBE,
+                PLAY,
+                PAUSE
             };
 
             virtual ~Message();
