@@ -141,9 +141,7 @@ void Level::render() {
 void Level::update() {
 
     Game::Camera::get_instance()->update();
-
-    if(editor->is_play())
-        scene->update();
+    scene->update();
 
     while(!Game::Message::get_instance()->is_empty()) {
         Game::Message::Type message_type = Game::Message::get_instance()->pop();

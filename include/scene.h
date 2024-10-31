@@ -8,6 +8,7 @@
 
 namespace Game {
     struct GameData;
+    struct GameState;
 }
 
 namespace Editor {
@@ -23,6 +24,7 @@ namespace Editor {
 
         Color background_color;
         Game::GameData* game_data;
+        Game::GameState* pause_state;
 
     };
 

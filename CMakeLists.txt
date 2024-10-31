@@ -31,6 +31,8 @@ SET(SOURCE_FILES
     src/model3D.cpp
     src/model3D_property.cpp
     src/utils.cpp
+    src/game_state.cpp
+    src/pause_state.cpp
     )
 
 

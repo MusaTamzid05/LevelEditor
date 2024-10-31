@@ -4,11 +4,13 @@
 #include "consts.h"
 #include "game_object.h"
 #include "game_data.h"
+#include "pause_state.h"
 #include <iostream>
 
 namespace Editor {
     Scene::Scene() {
         game_data = new Game::GameData();
+        pause_state = new Game::PauseState();
     }
 
     Scene::~Scene() {
@@ -35,11 +37,8 @@ namespace Editor {
         BeginMode3D(
                 Game::Camera::get_instance()->get_camera()
                 );
+            pause_state->render(game_data);
 
-                for(Game::GameObject* game_object : game_data->game_objects)
-                    game_object->render();
-
-            // render code
 
         EndMode3D();
 
@@ -48,7 +47,8 @@ namespace Editor {
     }
 
     void Scene::update() {
-
+        pause_state->update(game_data);
+        /*
         if(IsKeyDown(KEY_A))  {
             game_data->player->turn_left();
             game_data->player->add_position((Vector2){0.0f, -PLAYER_SPEED});
@@ -80,11 +80,12 @@ namespace Editor {
         if(key_release) 
             game_data->player->set_idle();
 
+        pause_state->update(game_data);
+        */
 
 
 
-        for(Game::GameObject* game_object : game_data->game_objects)
-            game_object->update();
+
 
     }
 
