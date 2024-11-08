@@ -1,7 +1,9 @@
 #include "play_state.h"
 #include "game_data.h"
 #include "consts.h"
+#include "camera.h"
 #include <raylib.h>
+#include <iostream>
 
 
 namespace Game {
@@ -14,6 +16,7 @@ namespace Game {
     }
 
     void PlayState::enter(GameData* game_data) {
+        Camera::get_instance()->init_camera_offset(game_data->player->position);
 
     }
 
@@ -55,6 +58,15 @@ namespace Game {
 
         if(key_release) 
             game_data->player->set_idle();
+
+
+        // follow code
+    
+        Vector3 player_pos = game_data->player->position;
+
+        if(Camera::get_instance()->did_player_move(player_pos))
+            Camera::get_instance()->follow(player_pos);
+        
 
         GameState::update(game_data);
 

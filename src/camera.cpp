@@ -99,6 +99,40 @@ namespace Game {
 
     }
 
+    void Camera::init_camera_offset(const Vector3& player_pos) {
+        offset = Vector3{
+            abs(player_pos.x - position.x), 
+            abs(player_pos.y - position.y), 
+            abs(player_pos.z - position.z)};
+
+        last_player_pos = player_pos;
+    }
+
+
+    bool Camera::did_player_move(const Vector3& player_pos) const {
+        return (
+                last_player_pos.x != player_pos.x ||
+                last_player_pos.y != player_pos.y ||
+                last_player_pos.z != player_pos.z 
+                );
+
+    }
+
+    void Camera::follow(const Vector3& player_pos) {
+        Vector3 distance = Vector3 {
+            player_pos.x - position.x,
+            player_pos.y - position.y,
+            player_pos.z - position.z
+        };
+
+        position.x += distance.x - offset.x;
+        position.y += distance.y + offset.y;
+        position.z += distance.z - offset.z;
+
+        last_player_pos = player_pos;
+
+    }
+
 
 }
 

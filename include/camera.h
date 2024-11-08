@@ -23,6 +23,11 @@ namespace Game {
 
             void init_defaults();
 
+
+            void init_camera_offset(const Vector3& player_pos);
+            bool did_player_move(const Vector3& player_pos) const;
+            void follow(const Vector3& player_pos);
+
             Vector3 position;
             //Vector3 target;
             Vector3 up;
@@ -30,6 +35,13 @@ namespace Game {
 
 
             Vector3 rotation;
+
+
+            // For following
+            //
+            Vector3 offset;
+            Vector3 last_player_pos;
+
 
         private:
             Camera();
