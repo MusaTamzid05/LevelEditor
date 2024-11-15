@@ -1,6 +1,7 @@
 #include "cube_property.h"
 #include "cube.h"
 #include "imgui.h"
+#include <iostream>
 
 namespace Editor {
 
@@ -22,6 +23,8 @@ namespace Editor {
     void CubeProperty::render() {
         ImGui::PushID(0);
 
+            ImGui::SeparatorText("Transform");
+
             ImGui::Text("Position");
             ImGui::DragFloat3("##pos",
                     &cube->position.x
@@ -40,6 +43,13 @@ namespace Editor {
                     (float*)&cube->color
                     );
 
+
+            ImGui::SeparatorText("-");
+
+            if(ImGui::Button("Delete"))  {
+                active = false;
+                cube->active = false;
+            }
 
 
         ImGui::PopID();

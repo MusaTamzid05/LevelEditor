@@ -18,6 +18,8 @@ struct Level {
     void update();
     void render();
 
+    void remove_inactive_objects();
+
     void save() const;
 
     Editor::LevelEditor* editor;

@@ -1,6 +1,7 @@
 #include "object.h"
 
 Object::Object() {
+    active = true;
 
 }
 

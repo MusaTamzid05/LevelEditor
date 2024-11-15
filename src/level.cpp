@@ -124,6 +124,7 @@ void Level::start() {
     while(!WindowShouldClose() && !editor->is_menu_closed()) {
         update();
         render();
+        remove_inactive_objects();
 
     }
 
@@ -188,6 +189,11 @@ void Level::save() const {
 
     output.close();
 
+}
+
+void Level::remove_inactive_objects() {
+    editor->property->remove_inactive_objects();
+    scene->game_data->remove_inactive_objects();
 }
 
 

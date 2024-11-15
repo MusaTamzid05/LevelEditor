@@ -13,6 +13,8 @@ namespace Editor {
         void render();
         void update();
 
+        void remove_inactive_objects();
+
         std::vector<WidgetObject*> widget_objects;
 
     };

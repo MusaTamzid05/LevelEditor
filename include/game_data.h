@@ -10,6 +10,8 @@ namespace Game {
     struct GameData {
         std::vector<Game::GameObject*> game_objects;
         Game::Model3D* player;
+
+        void remove_inactive_objects();
     };
 }
 

@@ -81,5 +81,21 @@ namespace Editor {
 
     }
 
+    void Property::remove_inactive_objects() {
+        std::vector<unsigned int> remove_indexes;
+
+        for(unsigned int i = 0; i < widget_objects.size(); i += 1) { 
+            if(!widget_objects[i]->active)
+                remove_indexes.push_back(i);
+        }
+
+        for(unsigned int index : remove_indexes) 
+            widget_objects.erase(
+                    widget_objects.begin() + index
+                    );
+        
+
+    }
+
 }
 
