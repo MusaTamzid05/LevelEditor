@@ -8,7 +8,7 @@
 namespace Game {
 
     struct Cube : GameObject {
-        Cube();
+        Cube(const std::string& name="Cube");
         virtual ~Cube();
 
         void init();
@@ -21,6 +21,8 @@ namespace Game {
         Vector3 position;
         Vector3 color;
         Vector3 scale;
+
+        std::string name;
 
 
     };

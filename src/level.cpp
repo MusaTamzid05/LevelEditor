@@ -18,6 +18,7 @@
 #include "state_machine.h"
 #include "play_state.h"
 #include "pause_state.h"
+#include "registry.h"
 
 
 Level::Level() {
@@ -111,6 +112,7 @@ void Level::load() {
 
             editor->property->widget_objects.push_back(property);
             scene->game_data->game_objects.push_back(cube);
+            Game::Registry::get_instance()->cube_count += 1;
         }
     }
 
@@ -152,7 +154,12 @@ void Level::update() {
 
         switch(message_type) {
             case Game::Message::Type::CREATE_CUBE: {
-                Game::Cube* cube = new Game::Cube();
+                Game::Registry::get_instance()->cube_count += 1;
+                Game::Cube* cube = new Game::Cube(
+                        "Cube " + std::to_string(
+                            Game::Registry::get_instance()->cube_count
+                            )
+                        );
                 Editor::CubeProperty* property = new Editor::CubeProperty(cube);
 
                 cube->init();

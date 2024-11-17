@@ -4,7 +4,7 @@
 
 namespace Game {
 
-    Cube::Cube() {
+    Cube::Cube(const std::string& name):name(name) {
 
     }
 
@@ -47,7 +47,7 @@ namespace Game {
 
     std::string Cube::get_data() const {
         std::string data;
-        data += "cube|" + std::to_string(position.x) + ",";
+        data +=  "cube|" + std::to_string(position.x) + ",";
         data +=  std::to_string(position.y) + ",";
         data +=  std::to_string(position.z) + "|";
 
@@ -59,7 +59,8 @@ namespace Game {
 
         data +=  std::to_string(scale.x) + ",";
         data +=  std::to_string(scale.y) + ",";
-        data +=  std::to_string(scale.z);
+        data +=  std::to_string(scale.z) + "|";
+        data +=  name;
 
         return data;
 
@@ -85,6 +86,8 @@ namespace Game {
         scale.x =  std::stof(scale_data[0]);
         scale.y =  std::stof(scale_data[1]);
         scale.z =  std::stof(scale_data[2]);
+
+        name = data[4];
 
 
 

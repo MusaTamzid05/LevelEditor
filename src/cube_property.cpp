@@ -17,7 +17,7 @@ namespace Editor {
 
 
     void CubeProperty::init() {
-        name = "Cube";
+        name = cube->name;
 
     }
     void CubeProperty::render() {

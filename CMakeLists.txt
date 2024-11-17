@@ -36,6 +36,7 @@ SET(SOURCE_FILES
     src/state_machine.cpp
     src/play_state.cpp
     src/game_data.cpp
+    src/registry.cpp
     )
 
 
