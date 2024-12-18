@@ -1,4 +1,6 @@
 #include "pause_state.h"
+#include "mlight.h"
+#include "registry.h"
 
 
 namespace Game {
@@ -21,6 +23,7 @@ namespace Game {
 
 
     void PauseState::update(GameData* game_data) {
+        Registry::get_instance()->light->update();
     }
 
 
