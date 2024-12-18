@@ -2,6 +2,7 @@
 #define MLIGHT_H
 
 #include "cube.h"
+#include "rlight.h"
 
 namespace Game {
     struct MLight : Cube {
@@ -10,6 +11,9 @@ namespace Game {
 
         void render();
         void update();
+
+        Shader shader;
+        Light light;
 
 
 

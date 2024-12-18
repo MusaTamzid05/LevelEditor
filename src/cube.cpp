@@ -1,6 +1,9 @@
 #include "cube.h"
 #include <iostream>
 #include "utils.h"
+#include "mlight.h"
+#include "registry.h"
+#include "camera.h"
 
 namespace Game {
 
@@ -30,13 +33,35 @@ namespace Game {
         cube_color.b  = color.z * 255.0f;
         cube_color.a  = 255.0f;
 
-        DrawCube(
-                position,
-                scale.x,
-                scale.y,
-                scale.z,
-                cube_color
-                );
+        MLight* light = Registry::get_instance()->light;
+
+        if(light == nullptr) {
+            DrawCube(
+                    position,
+                    scale.x,
+                    scale.y,
+                    scale.z,
+                    cube_color
+                    );
+            return;
+
+        }
+
+        Vector3 camera_pos = Camera::get_instance()->position;
+        SetShaderValue(light->shader, light->shader.locs[SHADER_LOC_VECTOR_VIEW], &camera_pos, SHADER_UNIFORM_VEC3);
+
+        BeginShaderMode(light->shader);
+            DrawCube(
+                    position,
+                    scale.x,
+                    scale.y,
+                    scale.z,
+                    cube_color
+                    );
+        EndShaderMode();
+
+
+
 
 
     }
