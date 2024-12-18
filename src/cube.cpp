@@ -5,6 +5,7 @@
 namespace Game {
 
     Cube::Cube(const std::string& name):name(name) {
+        save_name = "cube";
 
     }
 
@@ -47,7 +48,7 @@ namespace Game {
 
     std::string Cube::get_data() const {
         std::string data;
-        data +=  "cube|" + std::to_string(position.x) + ",";
+        data +=  save_name + "|" + std::to_string(position.x) + ",";
         data +=  std::to_string(position.y) + ",";
         data +=  std::to_string(position.z) + "|";
 

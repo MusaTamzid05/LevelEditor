@@ -37,6 +37,7 @@ SET(SOURCE_FILES
     src/play_state.cpp
     src/game_data.cpp
     src/registry.cpp
+    src/mlight.cpp
     )
 
 

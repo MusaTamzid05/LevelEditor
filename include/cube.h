@@ -12,8 +12,8 @@ namespace Game {
         virtual ~Cube();
 
         void init();
-        void render();
-        void update();
+        virtual void render();
+        virtual void update();
 
         std::string get_data() const;
         void load(const std::vector<std::string>& data);
@@ -23,6 +23,7 @@ namespace Game {
         Vector3 scale;
 
         std::string name;
+        std::string save_name;
 
 
     };

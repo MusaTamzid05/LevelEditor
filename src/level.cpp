@@ -19,6 +19,7 @@
 #include "play_state.h"
 #include "pause_state.h"
 #include "registry.h"
+#include "mlight.h"
 
 
 Level::Level() {
@@ -112,6 +113,19 @@ void Level::load() {
 
             editor->property->widget_objects.push_back(property);
             scene->game_data->game_objects.push_back(cube);
+            Game::Registry::get_instance()->cube_count += 1;
+        }
+
+        if(game_object_data[0] == "light") {
+
+            Game::MLight* light = new Game::MLight();
+            light->load(game_object_data);
+
+            Editor::CubeProperty* property = new Editor::CubeProperty(light);
+            property->init();
+
+            editor->property->widget_objects.push_back(property);
+            scene->game_data->game_objects.push_back(light);
             Game::Registry::get_instance()->cube_count += 1;
         }
     }
