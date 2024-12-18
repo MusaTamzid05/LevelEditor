@@ -126,6 +126,7 @@ void Level::load() {
 
             editor->property->widget_objects.push_back(property);
             scene->game_data->game_objects.push_back(light);
+            Game::Registry::get_instance()->light = light;
         }
     }
 
