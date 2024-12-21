@@ -3,10 +3,13 @@
 #include <raylib.h>
 #include <iostream>
 #include "utils.h"
+#include "game_data.h"
+#include "collision.h"
 
 namespace Game {
     Model3D::Model3D() {
         collider_scale = (Vector3) { 2.0f,  2.0f,  2.0f};
+        collided = false;
 
     }
 
@@ -46,14 +49,24 @@ namespace Game {
         collider_position.y += 1.5f;
 
         // @TODO: Fix the render of the wire cube
+        
 
-        DrawCubeWires(
-                collider_position,
-                collider_scale.x,
-                collider_scale.y,
-                collider_scale.z,
-                GREEN
-                );
+        if(!collided)
+            DrawCubeWires(
+                    collider_position,
+                    collider_scale.x,
+                    collider_scale.y,
+                    collider_scale.z,
+                    GREEN
+                    );
+        else
+            DrawCubeWires(
+                    collider_position,
+                    collider_scale.x,
+                    collider_scale.y,
+                    collider_scale.z,
+                    RED 
+                    );
 
 
     }
@@ -143,9 +156,31 @@ namespace Game {
     }
 
 
-    void Model3D::add_position(const Vector2& position) {
-        this->position.x += position.x * GetFrameTime();
-        this->position.z += position.y * GetFrameTime();
+    void Model3D::add_position(const Vector2& add_vector, const  GameData* game_data) {
+        Vector3 temp_collider_pos = game_data->player->collider_position;
+
+        temp_collider_pos.x  += add_vector.x * GetFrameTime();
+        temp_collider_pos.z  += add_vector.y * GetFrameTime();
+
+        collided = false;
+
+        for(GameObject* game_object : game_data->game_objects) {
+            collided = Collsion::check_box_collision(
+                    temp_collider_pos,
+                    collider_scale,
+                    game_object->position,
+                    game_object->scale
+                    );
+
+            if(collided) {
+                std::cout << "Collided\n";
+                break;
+            }
+
+        }
+
+        position.x += add_vector.x * GetFrameTime();
+        position.z += add_vector.y * GetFrameTime();
     }
 
     void Model3D::set_idle() {

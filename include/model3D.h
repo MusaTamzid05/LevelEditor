@@ -6,6 +6,8 @@
 #include <vector>
 
 namespace Game {
+    struct GameData;
+
     struct Model3D : GameObject {
 
         enum Animation {
@@ -31,7 +33,7 @@ namespace Game {
         void turn_forward();
         void turn_backward();
 
-        void add_position(const Vector2& position);
+        void add_position(const Vector2& add_vector, const GameData* game_data);
         void set_idle();
 
         Vector3 rotation;
@@ -52,6 +54,8 @@ namespace Game {
 
         Vector3 collider_position;
         Vector3 collider_scale;
+
+        bool collided;
 
 
 

@@ -38,6 +38,7 @@ SET(SOURCE_FILES
     src/game_data.cpp
     src/registry.cpp
     src/mlight.cpp
+    src/collision.cpp
     )
 
 

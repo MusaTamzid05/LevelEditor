@@ -30,24 +30,24 @@ namespace Game {
 
         if(IsKeyDown(KEY_A))  {
             game_data->player->turn_left();
-            game_data->player->add_position((Vector2){0.0f, -PLAYER_SPEED});
+            game_data->player->add_position((Vector2){0.0f, -PLAYER_SPEED}, game_data);
         }
 
         if(IsKeyDown(KEY_D))  {
             game_data->player->turn_right();
-            game_data->player->add_position((Vector2){0.0f, PLAYER_SPEED});
+            game_data->player->add_position((Vector2){0.0f, PLAYER_SPEED}, game_data);
         }
 
 
         if(IsKeyDown(KEY_W))  {
             game_data->player->turn_forward();
-            game_data->player->add_position((Vector2){PLAYER_SPEED , 0.0f});
+            game_data->player->add_position((Vector2){PLAYER_SPEED , 0.0f}, game_data);
         }
 
 
         if(IsKeyDown(KEY_S))  {
             game_data->player->turn_backward();
-            game_data->player->add_position((Vector2){-PLAYER_SPEED , 0.0f});
+            game_data->player->add_position((Vector2){-PLAYER_SPEED , 0.0f}, game_data);
         }
 
         bool key_release = IsKeyReleased(KEY_A) || 
