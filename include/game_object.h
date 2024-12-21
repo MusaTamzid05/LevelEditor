@@ -3,6 +3,7 @@
 
 #include "object.h"
 #include <string>
+#include <raylib.h>
 
 namespace Game {
     struct GameObject : Object{
@@ -10,6 +11,9 @@ namespace Game {
         ~GameObject();
 
         virtual std::string get_data() const;
+
+        Vector3 position;
+        Vector3 scale;
 
     };
 

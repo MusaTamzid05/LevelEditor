@@ -18,9 +18,7 @@ namespace Game {
         std::string get_data() const;
         void load(const std::vector<std::string>& data);
 
-        Vector3 position;
         Vector3 color;
-        Vector3 scale;
 
         std::string name;
         std::string save_name;

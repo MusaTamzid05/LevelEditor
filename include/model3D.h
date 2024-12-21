@@ -34,7 +34,6 @@ namespace Game {
         void add_position(const Vector2& position);
         void set_idle();
 
-        Vector3 position;
         Vector3 rotation;
 
         Model model;
