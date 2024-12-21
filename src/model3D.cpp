@@ -6,6 +6,7 @@
 
 namespace Game {
     Model3D::Model3D() {
+        collider_scale = (Vector3) { 2.0f,  2.0f,  2.0f};
 
     }
 
@@ -40,6 +41,20 @@ namespace Game {
                 0.01f,
                 WHITE
                 );
+
+        collider_position = position;
+        collider_position.y += 1.5f;
+
+        // @TODO: Fix the render of the wire cube
+
+        DrawCubeWires(
+                collider_position,
+                collider_scale.x,
+                collider_scale.y,
+                collider_scale.z,
+                GREEN
+                );
+
 
     }
 

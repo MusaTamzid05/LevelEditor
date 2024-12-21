@@ -51,6 +51,9 @@ namespace Game {
         const float FORWARD_DIRECTION = 270.0f;
         const float BACKWARD_DIRECTION = 90.0f;
 
+        Vector3 collider_position;
+        Vector3 collider_scale;
+
 
 
 
