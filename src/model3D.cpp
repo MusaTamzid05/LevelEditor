@@ -173,11 +173,11 @@ namespace Game {
                     );
 
             if(collided) {
-                std::cout << "Collided\n";
-                break;
+                return;
             }
 
         }
+
 
         position.x += add_vector.x * GetFrameTime();
         position.z += add_vector.y * GetFrameTime();
