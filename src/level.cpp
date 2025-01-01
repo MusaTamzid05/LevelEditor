@@ -65,6 +65,7 @@ void Level::init() {
     Game::Camera::get_instance()->init();
     editor->init();
     scene->init();
+    Game::Registry::get_instance()->game_data = scene->game_data;
 
 
 
@@ -132,6 +133,7 @@ void Level::load() {
 
     editor->init();
     scene->load();
+    Game::Registry::get_instance()->game_data = scene->game_data;
 }
 
 void Level::start() {

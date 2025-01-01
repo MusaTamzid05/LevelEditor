@@ -1,8 +1,11 @@
 #ifndef REGISTRY_H
 #define REGISTRY_H
 
+#include <vector>
+
 namespace Game {
     struct MLight;
+    struct GameData;
 
     class Registry {
         public:
@@ -10,6 +13,7 @@ namespace Game {
             static Registry* get_instance();
 
             MLight* light;
+            GameData* game_data;
 
         private:
             Registry();

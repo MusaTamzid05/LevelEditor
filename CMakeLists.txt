@@ -39,6 +39,7 @@ SET(SOURCE_FILES
     src/registry.cpp
     src/mlight.cpp
     src/collision.cpp
+    src/gravity_force.cpp
     )
 
 

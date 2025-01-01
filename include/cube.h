@@ -4,6 +4,7 @@
 #include "game_object.h"
 #include <raylib.h>
 #include <vector>
+#include "gravity_force.h"
 
 namespace Game {
 
@@ -21,6 +22,7 @@ namespace Game {
         Vector3 color;
         std::string save_name;
         bool gravity;
+        GravityForce gravity_force;
 
 
     };

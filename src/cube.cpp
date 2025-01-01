@@ -70,6 +70,12 @@ namespace Game {
 
     void Cube::update() {
 
+        if(!gravity)
+            return;
+        gravity_force.apply((Vector3){ 0.0f, -0.1f, 0.0f});
+        gravity_force.update(this);
+
+
     }
 
     std::string Cube::get_data() const {

@@ -58,45 +58,8 @@ namespace Editor {
     }
 
     void Scene::update() {
+        // @TODO: At delta time
         Game::StateMachine::get_instance()->current_state->update(game_data);
-        /*
-        if(IsKeyDown(KEY_A))  {
-            game_data->player->turn_left();
-            game_data->player->add_position((Vector2){0.0f, -PLAYER_SPEED});
-        }
-
-        if(IsKeyDown(KEY_D))  {
-            game_data->player->turn_right();
-            game_data->player->add_position((Vector2){0.0f, PLAYER_SPEED});
-        }
-
-
-        if(IsKeyDown(KEY_W))  {
-            game_data->player->turn_forward();
-            game_data->player->add_position((Vector2){PLAYER_SPEED , 0.0f});
-        }
-
-
-        if(IsKeyDown(KEY_S))  {
-            game_data->player->turn_backward();
-            game_data->player->add_position((Vector2){-PLAYER_SPEED , 0.0f});
-        }
-
-        bool key_release = IsKeyReleased(KEY_A) || 
-             IsKeyReleased(KEY_D) ||
-             IsKeyReleased(KEY_W) ||
-             IsKeyReleased(KEY_S);
-
-
-        if(key_release) 
-            game_data->player->set_idle();
-
-        pause_state->update(game_data);
-        */
-
-
-
-
 
     }
 
