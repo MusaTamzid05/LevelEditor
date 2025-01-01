@@ -20,7 +20,6 @@ namespace Game {
 
         Vector3 color;
 
-        std::string name;
         std::string save_name;
 
 

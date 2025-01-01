@@ -7,7 +7,8 @@
 #include "collision.h"
 
 namespace Game {
-    Model3D::Model3D() {
+    Model3D::Model3D():GameObject("Model") {
+        type = GameObject::MODEL;
         collider_scale = (Vector3) { 2.0f,  2.0f,  2.0f};
         collided = false;
 
@@ -165,6 +166,9 @@ namespace Game {
         collided = false;
 
         for(GameObject* game_object : game_data->game_objects) {
+            if(game_object->type == GameObject::MODEL)
+                continue;
+
             collided = Collsion::check_box_collision(
                     temp_collider_pos,
                     collider_scale,
@@ -172,9 +176,8 @@ namespace Game {
                     game_object->scale
                     );
 
-            if(collided) {
+            if(collided) 
                 return;
-            }
 
         }
 

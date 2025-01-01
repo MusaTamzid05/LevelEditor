@@ -7,13 +7,21 @@
 
 namespace Game {
     struct GameObject : Object{
-        GameObject();
+
+        enum Type {
+            MODEL,
+            CUBE
+        };
+
+        GameObject(const std::string& name);
         ~GameObject();
 
         virtual std::string get_data() const;
 
         Vector3 position;
         Vector3 scale;
+        std::string name;
+        Type type;
 
     };
 
