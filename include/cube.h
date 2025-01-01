@@ -19,8 +19,8 @@ namespace Game {
         void load(const std::vector<std::string>& data);
 
         Vector3 color;
-
         std::string save_name;
+        bool gravity;
 
 
     };

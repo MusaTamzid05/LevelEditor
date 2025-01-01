@@ -43,6 +43,9 @@ namespace Editor {
                     (float*)&cube->color
                     );
 
+            ImGui::SeparatorText("-");
+            ImGui::Checkbox("Gravity", &cube->gravity);
+
 
             ImGui::SeparatorText("-");
 

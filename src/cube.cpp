@@ -7,7 +7,7 @@
 
 namespace Game {
 
-    Cube::Cube(const std::string& name):GameObject(name) {
+    Cube::Cube(const std::string& name):GameObject(name),gravity(false) {
         save_name = "cube";
         type = GameObject::CUBE;
 
